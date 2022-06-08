@@ -11,6 +11,7 @@ import plotly.graph_objects as go
 
 import argparse
 import pprint
+import time
 
 
 def preprocess(num_articles = 10, out_path = "articles.json"):
@@ -100,25 +101,26 @@ def visualize_bert(sentiment_results):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--num_articles", type=int, default=10, 
-                        help="input the number of articles you want collect")
+                        help="the number of articles you want collect")
     parser.add_argument("--out_path", type=str, default='articles.json', 
-                        help="json path to store scraped articles")
+                        help="JSON file path of scraped articles")
     parser.add_argument("--method", type=str, default='VADER', choices=['VADER', 'DistilBERT'],
                         help="choose one method to analyze sentiment")
     parser.add_argument("--res_path", type=str, default='sentiment_analysis.json', 
-                        help="json path to store the results fo sentiment analysis")
+                        help="JSON file path to store the results of sentiment analysis")
     args = parser.parse_args()
     
+    start_time = time.time()
     articles = preprocess(args.num_articles, args.out_path)
-    
     if args.method == "VADER":
         sentiment_results = sentiment_analysis_vader(articles, args.res_path)
         visualize_vader(sentiment_results)
     if args.method == "DistilBERT":
         sentiment_results = sentiment_analysis_bert(articles, args.res_path)
         visualize_bert(sentiment_results)
-    
     pprint.pprint(sentiment_results)
+    end_time = time.time()
+    print("Running time: {:.4f} seconds".format(end_time - start_time))
     
         
     

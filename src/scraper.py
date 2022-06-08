@@ -1,14 +1,13 @@
 from typing import List
 import json
-import argparse
-
 import requests
 from bs4 import BeautifulSoup
 from tqdm import tqdm
+import argparse
 
 
 def fetch_article_links(num_articles: int) -> List[str]:
-    home_link = "https://www.aljazeera.com"
+    home_link = "https://www.aljazeera.com/where/mozambique"
     r = requests.get(home_link)
     print(f"Status code: {r.status_code}")
     print(f"Content type: {r.headers['content-type']}")
@@ -79,8 +78,8 @@ if __name__ == "__main__":
                         help="input the number of articles you want collect")
     parser.add_argument("--out_path", type=str, default='articles.json', 
                         help="json path to store scraped articles")
-
     args = parser.parse_args()
+    
     article_links = fetch_article_links(args.num_articles)
     collect_articles(article_links)
     
