@@ -109,7 +109,6 @@ if __name__ == "__main__":
                         help="input the number of articles you want collect")
     parser.add_argument("--out_path", type=str, default='articles.json', 
                         help="json path to store scraped articles")
-    # TODO: support TextBlob
     parser.add_argument("--method", type=str, default='VADER', choices=['VADER', 'DistilBERT'],
                         help="choose one method to analyze sentiment")
     parser.add_argument("--res_path", type=str, default='sentiment_analysis.json', 
