@@ -9,6 +9,7 @@ Create a Python 3.8+ environment with Conda and `requirements.txt` file. Please 
 
 ```python
 conda create python=3.8 --name <env_name> --file requirements.txt 
+conda activate <env_name>
 ```
 
 ## Collect the latest news via web scraping
@@ -63,10 +64,15 @@ Create an environment following [Setup](##Setup), and then run the following com
 ```bash
 python3 src/sentiment_analysis.py  # using the following default setting
 
-python3 src/sentiment_analysis.py --num_articles 10 \  # the number of collected articles
-																	--out_path 'articles.json' \  # file path of scraped articles
-																	--method VADER \  # choose method VADER or DistilBERT to analyze sentiment
-																	--res_path 'sentiment_analysis.json'  # file path of sentiment analysis results
+python3 src/sentiment_analysis.py --num_articles 10 \  
+																	--out_path 'articles.json' \  
+																	--method VADER \  
+																	--res_path 'sentiment_analysis.json' 
+																	
+# --num_articles: the number of collected articles
+# --out_path: the file path of scraped articles
+# --method: choose method VADER or DistilBERT to analyze sentiment
+# --res_path: the file path of sentiment analysis 
 ```
 
 This command line will create 2 JSON files:
