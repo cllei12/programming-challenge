@@ -59,7 +59,7 @@ NOTE: The second approach uses the [DistilBERT model](https://huggingface.co/dis
 
 ### Run `sentiment_analysis.py`
 
-Create an environment following [Setup](##Setup), and then run the following command line.
+Create an environment following [Setup](#setup), and then run the following command line.
 
 ```bash
 python3 src/sentiment_analysis.py  # using the following default setting
