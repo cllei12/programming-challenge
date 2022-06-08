@@ -19,8 +19,28 @@ Collect 10 most recent articles from https://www.aljazeera.com/where/mozambique/
 
 
 ### format of the file
-- [ ] collect articles as a JSON file in your submission repository. The format of the file is up to you, describe this format in your summary (see step 6).
+- [x] collect articles as a JSON file in your submission repository. The format of the file is up to you, describe this format in your summary (see step 6).
 
+```
+{
+    "article_0":{
+        "article_link": home_link + article_link,
+        "header": header,
+        "sub_header": sub_header,
+        "img_link": img_link,
+        "img_cap": img_cap,
+        "date": date,
+        "content": contents
+    },
+    "article_1":{
+        ...
+    },
+    ...
+}
+```
+
+## Pre-process
+Pre-process the data. Remove anything that is not part of the article itself, e.g. comments, publishing date, images, etc. Make sure the articles are in English and can be processed by the sentiment analysis library. Use the tqdm package to display progress on the terminal. Use PEP8 Style Guide for your python code.
 
 ## Requirements
 

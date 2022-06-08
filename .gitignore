@@ -1,2 +1,4 @@
 learn.md
 articles/
+.vscode/
+__pycache__/

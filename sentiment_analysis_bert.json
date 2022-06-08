@@ -1,0 +1,42 @@
+{
+    "article_0": {
+        "label": "NEGATIVE",
+        "score": 0.9974578022956848
+    },
+    "article_1": {
+        "label": "NEGATIVE",
+        "score": 0.9615672826766968
+    },
+    "article_2": {
+        "label": "NEGATIVE",
+        "score": 0.9958655834197998
+    },
+    "article_3": {
+        "label": "NEGATIVE",
+        "score": 0.9475564360618591
+    },
+    "article_4": {
+        "label": "NEGATIVE",
+        "score": 0.9981380701065063
+    },
+    "article_5": {
+        "label": "POSITIVE",
+        "score": 0.97239750623703
+    },
+    "article_6": {
+        "label": "POSITIVE",
+        "score": 0.9535402059555054
+    },
+    "article_7": {
+        "label": "NEGATIVE",
+        "score": 0.9940432906150818
+    },
+    "article_8": {
+        "label": "NEGATIVE",
+        "score": 0.7580540776252747
+    },
+    "article_9": {
+        "label": "NEGATIVE",
+        "score": 0.9897750616073608
+    }
+}
