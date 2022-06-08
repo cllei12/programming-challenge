@@ -64,10 +64,7 @@ Create an environment following [Setup](#setup), and then run the following comm
 ```bash
 python3 src/sentiment_analysis.py  # using the following default setting
 
-python3 src/sentiment_analysis.py --num_articles 10 \  
-																	--out_path 'articles.json' \  
-																	--method VADER \  
-																	--res_path 'sentiment_analysis.json' 
+python3 src/sentiment_analysis.py --num_articles 10 --out_path 'articles.json' --method VADER --res_path 'sentiment_analysis.json' 
 																	
 # --num_articles: the number of collected articles
 # --out_path: the file path of scraped articles
@@ -87,19 +84,13 @@ PS:
 [sentiment_analysis_bert.json](./sentiment_analysis_bert.json) is created by 
 
 ```bash
-python3 src/sentiment_analysis.py --num_articles 10 \ 
-																	--out_path 'articles.json' \  
-																	--method DistilBERT \  
-																	--res_path 'sentiment_analysis_bert.json'  
+python3 src/sentiment_analysis.py --num_articles 10 --out_path 'articles.json' --method DistilBERT --res_path 'sentiment_analysis_bert.json'  
 ```
 
 [sentiment_analysis_vader.json](./sentiment_analysis_vader.json) is created by 
 
 ```bash
-python3 src/sentiment_analysis.py --num_articles 10 \ 
-																	--out_path 'articles.json' \  
-																	--method VADER \  
-																	--res_path 'sentiment_analysis_vader.json'  
+python3 src/sentiment_analysis.py --num_articles 10 --out_path 'articles.json' --method VADER --res_path 'sentiment_analysis_vader.json'  
 ```
 
 ### Results
