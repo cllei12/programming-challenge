@@ -1,4 +1,3 @@
-from typing import List
 import json
 from tqdm import tqdm
 from scraper import fetch_article_links, collect_articles
@@ -14,10 +13,9 @@ import argparse
 import pprint
 
 
-def preprocess(home_link = 'https://www.aljazeera.com/where/mozambique/', 
-               num_articles = 10, out_path = "articles.json"):
+def preprocess(num_articles = 10, out_path = "articles.json"):
     # collect articles
-    article_links = fetch_article_links(home_link, num_articles)
+    article_links = fetch_article_links(num_articles)
     collect_articles(article_links, out_path)
     
     with open(out_path, "r") as f:
@@ -35,7 +33,6 @@ def sentiment_analysis_vader(articles: dict, res_path="sentiment_analysis.json")
         content = articles[key]["content"]
         sentiment_results[key] = sia.polarity_scores(content)
         compound_score = sentiment_results[key]['compound']
-        
         # positive sentiment: compound score >= 0.05
         if compound_score >= 0.05:
             sentiment_results[key]['label'] = "positive"
@@ -52,7 +49,7 @@ def sentiment_analysis_vader(articles: dict, res_path="sentiment_analysis.json")
          
     return sentiment_results
 
-def sentiment_analysis_bert(articles: List[str], res_path="sentiment_analysis.json"):
+def sentiment_analysis_bert(articles: dict, res_path="sentiment_analysis.json"):
     # Hugging Face pipeline: DistilBERT
     sentiment_results = {}
     pipe = pipeline("sentiment-analysis")
@@ -101,10 +98,7 @@ def visualize_bert(sentiment_results):
     
     
 if __name__ == "__main__":
-    
     parser = argparse.ArgumentParser()
-    parser.add_argument("--home_link", default='https://www.aljazeera.com/where/mozambique/', 
-                        type=str, help="the home link of articles you want collect")
     parser.add_argument("--num_articles", type=int, default=10, 
                         help="input the number of articles you want collect")
     parser.add_argument("--out_path", type=str, default='articles.json', 
@@ -115,7 +109,7 @@ if __name__ == "__main__":
                         help="json path to store the results fo sentiment analysis")
     args = parser.parse_args()
     
-    articles = preprocess(args.home_link, args.num_articles, args.out_path)
+    articles = preprocess(args.num_articles, args.out_path)
     
     if args.method == "VADER":
         sentiment_results = sentiment_analysis_vader(articles, args.res_path)
