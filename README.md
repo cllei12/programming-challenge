@@ -11,13 +11,13 @@ Create a Python 3.8+ environment with Conda and `requirements.txt` file. Please 
 conda create python=3.8 --name <env_name> --file requirements.txt 
 ```
 
-## Collect latest news via web scraping
+## Collect the latest news via web scraping
 
 Collect 10 most recent articles from https://www.aljazeera.com/where/mozambique/ Include collected articles as a JSON file in your submission repository.
 
 ### Format of the JSON file
 
-The collected news articles will be stored in the default JSON file, `articles.json`. Each article corresponds to a JSON object, which contains the following infomation of this article:
+The collected news articles will be stored in the default JSON file, `articles.json`. Each article corresponds to a JSON object, which contains the following information about this article:
 
 - article_link: the URL of this article
 - header: the header of this article
@@ -49,7 +49,7 @@ Here is an example showing the format intuitively.
 
 ## Sentiment analysis 
 
-The code support two methods to compute sentiment of news articles.
+The code support two methods to compute the sentiment of news articles.
 
 - [VADER](https://github.com/cjhutto/vaderSentiment) (recommended)
 - [Hugging Face: Sentiment analysis pipeline (DistilBERT)](https://huggingface.co/docs/transformers/main_classes/pipelines#transformers.pipeline)
@@ -58,7 +58,7 @@ NOTE: The second approach uses the [DistilBERT model](https://huggingface.co/dis
 
 ### Run `sentiment_analysis.py`
 
-Create an enviroment following [Setup](##Setup), and then run the following command line.
+Create an environment following [Setup](##Setup), and then run the following command line.
 
 ```bash
 python3 src/sentiment_analysis.py  # using the following default setting
@@ -69,7 +69,7 @@ python3 src/sentiment_analysis.py --num_articles 10 \  # the number of collected
 																	--res_path 'sentiment_analysis.json'  # file path of sentiment analysis results
 ```
 
-This command line will create 2 JSON file:
+This command line will create 2 JSON files:
 
 - [`articles.json`](./articles.json): contains 10 collected latest news articles
 - [`sentiment_analysis.json`](./sentiment_analysis.json): contains the sentiment analysis result of each article
@@ -116,7 +116,7 @@ Hence, among the 10 most recent articles from https://www.aljazeera.com/where/mo
 
 ### Running time 
 
-Using VADER is faster than using DistilBERT.
+Using VADER is faster than using DistilBERT, and also the second method needs to download the pre-trained DistilBERT model first (around 250 MB). 
 
 - VADER: 4.3903 seconds
 - Hugging Face: Sentiment analysis pipeline (DistilBERT): 22.5683 seconds
