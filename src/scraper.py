@@ -15,7 +15,7 @@ def fetch_article_links(num_articles: int) -> List[str]:
     # Parsing the HTML
     soup = BeautifulSoup(r.content, 'html.parser')
   
-    # find all <article> tags, ignoring video post
+    # find all <article> tags, ignoring video posts
     article_tags = soup.find_all(
         lambda tag: tag.name=="article" and 'gc--type-episode' not in tag.get("class")  
     )
@@ -67,7 +67,7 @@ def collect_articles(article_links: List[str], out_path="articles.json"):
             
         articles[f'article_{i}'] = dictionary
        
-    json_object = json.dumps(articles, indent = 4)
+    json_object = json.dumps(articles, indent=4)
     with open(out_path, "w") as out_file:
         out_file.write(json_object)
     

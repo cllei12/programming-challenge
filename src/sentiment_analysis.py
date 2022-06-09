@@ -14,7 +14,7 @@ import pprint
 import time
 
 
-def preprocess(num_articles = 10, out_path = "articles.json"):
+def preprocess(num_articles=10, out_path="articles.json"):
     """Collect articles"""
     
     article_links = fetch_article_links(num_articles)
@@ -65,7 +65,7 @@ def sentiment_analysis_bert(articles: dict, res_path="sentiment_analysis.json"):
             print("Too many tokens (> 512) for DistilBERT, so only the 1/3 article is used.")
             sentiment_results[key] = pipe(content[:len(content)//3])[0]
         
-    json_object = json.dumps(sentiment_results, indent = 4)
+    json_object = json.dumps(sentiment_results, indent=4)
     with open(res_path, "w") as out_file:
         out_file.write(json_object)
          
@@ -79,12 +79,12 @@ def visualize_vader(sentiment_results):
         x_labels.append(f'article_{i}')
         
     fig = go.Figure()
-    fig.add_trace(go.Bar(x = x_labels, y = df['neg'], name = 'Negative'))
-    fig.add_trace(go.Bar(x = x_labels, y = df['neu'], name = 'Neutral'))
-    fig.add_trace(go.Bar(x = x_labels, y = df['pos'], name= 'Positive'))
-    fig.add_trace(go.Bar(x = x_labels, y = df['compound'], name= "Compound",))
+    fig.add_trace(go.Bar(x=x_labels, y=df['neg'], name='Negative'))
+    fig.add_trace(go.Bar(x=x_labels, y=df['neu'], name='Neutral'))
+    fig.add_trace(go.Bar(x=x_labels, y=df['pos'], name='Positive'))
+    fig.add_trace(go.Bar(x=x_labels, y=df['compound'], name="Compound"))
     # Here we modify the tickangle of the xaxis, resulting in rotated labels.
-    fig.update_layout(barmode = 'group', xaxis_tickangle = -45)
+    fig.update_layout(barmode='group', xaxis_tickangle=-45)
     fig.show()
     
 def visualize_bert(sentiment_results):
@@ -96,8 +96,8 @@ def visualize_bert(sentiment_results):
         x_labels.append(f'article_{i}')
         
     fig = go.Figure()
-    fig.add_trace(go.Bar(x = x_labels, y = df['score'], name = 'score'))
-    fig.update_layout(barmode = 'group', xaxis_tickangle = -45)
+    fig.add_trace(go.Bar(x=x_labels, y=df['score'], name='score'))
+    fig.update_layout(barmode='group', xaxis_tickangle=-45)
     fig.show()
     
     
