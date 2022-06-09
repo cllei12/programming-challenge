@@ -15,9 +15,9 @@ def fetch_article_links(num_articles: int) -> List[str]:
     # Parsing the HTML
     soup = BeautifulSoup(r.content, 'html.parser')
   
-    # find all <article> tags
+    # find all <article> tags, ignoring video post
     article_tags = soup.find_all(
-        lambda tag: tag.name=="article" and 'gc--type-episode' not in tag.get("class")  # remove video post
+        lambda tag: tag.name=="article" and 'gc--type-episode' not in tag.get("class")  
     )
     assert num_articles <= len(article_tags)
    
