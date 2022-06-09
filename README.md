@@ -5,10 +5,12 @@ The specific task will be to create a pipeline that collects and analyzes news a
 
 ## Setup
 
-Create a Python 3.8+ environment with Conda and `requirements.txt` file. Please replace `<env_name>` with any name you want.
+Create a Python 3.8+ environment with Conda and `requirements.txt` file. Please replace `<env_name>` with any name you want. 
+
+NOTE: This setup works well on osx-arm64 platform but may fail on Windows.
 
 ```python
-conda create python=3.8 --name <env_name> --file requirements.txt 
+conda create python=3.8 -c conda-forge --name <env_name> --file requirements.txt 
 conda activate <env_name>
 ```
 

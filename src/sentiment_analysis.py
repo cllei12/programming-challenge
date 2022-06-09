@@ -15,7 +15,8 @@ import time
 
 
 def preprocess(num_articles = 10, out_path = "articles.json"):
-    # collect articles
+    """Collect articles"""
+    
     article_links = fetch_article_links(num_articles)
     collect_articles(article_links, out_path)
     
@@ -25,7 +26,8 @@ def preprocess(num_articles = 10, out_path = "articles.json"):
     return articles
         
 def sentiment_analysis_vader(articles: dict, res_path="sentiment_analysis.json"):
-    # nltk and VADER
+    """Analyze sentiment with nltk and VADER"""
+    
     nltk.download('vader_lexicon')
     
     sentiment_results = {}
@@ -51,7 +53,8 @@ def sentiment_analysis_vader(articles: dict, res_path="sentiment_analysis.json")
     return sentiment_results
 
 def sentiment_analysis_bert(articles: dict, res_path="sentiment_analysis.json"):
-    # Hugging Face pipeline: DistilBERT
+    """Analyze sentiment with Hugging Face pipeline: DistilBERT"""
+    
     sentiment_results = {}
     pipe = pipeline("sentiment-analysis")
     for key in tqdm(articles, desc="Sentiment Analysis"):
