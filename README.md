@@ -69,9 +69,9 @@ python3 src/sentiment_analysis.py  # using the following default setting
 python3 src/sentiment_analysis.py --num_articles 10 --out_path 'articles.json' --method VADER --res_path 'sentiment_analysis.json' 
 																	
 # --num_articles: the number of collected articles
-# --out_path: the file path of scraped articles
+# --out_path: the JSON file path for storing scraped articles
 # --method: choose method VADER or DistilBERT to analyze sentiment
-# --res_path: the file path of sentiment analysis 
+# --res_path: the JSON file path for storing sentiment analysis results
 ```
 
 This command line will create 2 JSON files:
