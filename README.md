@@ -20,7 +20,7 @@ Collect 10 most recent articles from https://www.aljazeera.com/where/mozambique/
 
 ### Format of the JSON file
 
-The collected news articles will be stored in the default JSON file, `articles.json`. Each article corresponds to a JSON object, which contains the following information about this article:
+The collected news articles will be stored in the default JSON file, [`articles.json`](./articles.json). Each article corresponds to a JSON object, which contains the following information about this article:
 
 - article_link: the URL of this article
 - header: the header of this article
