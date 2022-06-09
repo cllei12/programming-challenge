@@ -6,7 +6,15 @@ from tqdm import tqdm
 import argparse
 
 
-def fetch_article_links(num_articles: int) -> List[str]:
+def fetch_article_links(num_articles: int):
+    """Fetch the most recent {num_articles} news article URLs.
+
+    Args:
+        num_articles (int): the number of collected articles
+
+    Returns:
+        List[str]: a list of news article URLs
+    """
     home_link = "https://www.aljazeera.com/where/mozambique"
     r = requests.get(home_link)
     print(f"Status code: {r.status_code}")
@@ -29,6 +37,13 @@ def fetch_article_links(num_articles: int) -> List[str]:
     return article_links
 
 def collect_articles(article_links: List[str], out_path="articles.json"):
+    """Scrape news articles by the URLs in the list {article_links}.
+
+    Args:
+        article_links (List[str]): a list of news article URLs
+        out_path (str, optional): the JSON file path for storing scraped articles. 
+                                  Defaults to "articles.json".
+    """
     home_link = "https://www.aljazeera.com"
     articles = {}
   
