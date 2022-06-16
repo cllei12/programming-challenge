@@ -64,7 +64,9 @@ def collect_articles(article_links: List[str], out_path="articles.json"):
         date = main_content.find("div", class_="article-dates").span.text
         
         # article content
-        raw_content = main_content.find("div", class_="wysiwyg wysiwyg--all-content css-1ck9wyi")
+        raw_content = main_content.find(
+            lambda tag: tag.name=="div" and 'wysiwyg' in tag.get("class")
+        )
         content = []
         for p in raw_content.find_all('p'):
             content.append(p.text)
