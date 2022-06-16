@@ -14,6 +14,18 @@ conda create python=3.8 -c conda-forge --name <env_name> --file requirements.txt
 conda activate <env_name>
 ```
 
+Update: for Windows users, please try to create the environment with `requirements_simple.txt` as follows.
+
+```python
+conda create python=3.8 -c conda-forge --name <env_name> --file requirements_simple.txt 
+conda activate <env_name>
+```
+
+You may have some problems when using conda on PowerShell, hope this link could be helpful.
+
+> [Conda not activated in Power Shell](https://stackoverflow.com/questions/62082873/conda-not-activated-in-power-shell)
+
+
 ## Collect the latest news via web scraping
 
 Collect 10 most recent articles from https://www.aljazeera.com/where/mozambique/ Include collected articles as a JSON file in your submission repository.
@@ -64,9 +76,9 @@ NOTE: The second approach uses the [DistilBERT model](https://huggingface.co/dis
 Create an environment following [Setup](#setup), and then run the following command line.
 
 ```bash
-python3 src/sentiment_analysis.py  # using the following default setting
+python src/sentiment_analysis.py  # using the following default setting
 
-python3 src/sentiment_analysis.py --num_articles 10 --out_path 'articles.json' --method VADER --res_path 'sentiment_analysis.json' 
+python src/sentiment_analysis.py --num_articles 10 --out_path 'articles.json' --method VADER --res_path 'sentiment_analysis.json' 
 																	
 # --num_articles: the number of collected articles
 # --out_path: the JSON file path for storing scraped articles
@@ -86,13 +98,13 @@ PS:
 [sentiment_analysis_bert.json](./sentiment_analysis_bert.json) is created by 
 
 ```bash
-python3 src/sentiment_analysis.py --num_articles 10 --out_path 'articles.json' --method DistilBERT --res_path 'sentiment_analysis_bert.json'  
+python src/sentiment_analysis.py --num_articles 10 --out_path 'articles.json' --method DistilBERT --res_path 'sentiment_analysis_bert.json'  
 ```
 
 [sentiment_analysis_vader.json](./sentiment_analysis_vader.json) is created by 
 
 ```bash
-python3 src/sentiment_analysis.py --num_articles 10 --out_path 'articles.json' --method VADER --res_path 'sentiment_analysis_vader.json'  
+python src/sentiment_analysis.py --num_articles 10 --out_path 'articles.json' --method VADER --res_path 'sentiment_analysis_vader.json'  
 ```
 
 ### Results
